@@ -1,0 +1,28 @@
+django-sample-mysql:
+  image: mysql:5.6
+  container_name: django_sample_mysql
+  environment:
+    MYSQL_DATABASE: django_sample
+    MYSQL_ROOT_PASSWORD: gee99gee
+    MYSQL_USER: admin
+    MYSQL_PASSWORD: gee99gee
+
+django-sample-app:
+  build: .
+  command: /runners/runserver-django.sh /code/
+  container_name: django_sample_django_app
+  environment:
+    DB_OPT: mysql
+    DATABASE_NAME: django_sample
+    DATABASE_USER: admin
+    DATABASE_PASSWORD: gee99gee
+  volumes:
+    - ./helper-scripts/runners:/runners
+    - ./django_sample:/code/django_sample
+    - ./sample:/code/sample
+    - ./static:/code/static
+    - ./templates:/code/templates
+  ports:
+    - "8000:8000"
+  links:
+    - django-sample-mysql:mysql
