@@ -201,7 +201,7 @@ ID_TO_MEANING = {
 MAX_IO_MSG_SIZE = 1000  #if the io is too big, we'll not send all (could make the debugger too non-responsive)
 #this number can be changed if there's need to do so
 
-VERSION_STRING = "PY-162.1967.10"
+VERSION_STRING = "@@BUILD_NUMBER@@"
 
 from _pydev_bundle._pydev_filesystem_encoding import getfilesystemencoding
 file_system_encoding = getfilesystemencoding()
