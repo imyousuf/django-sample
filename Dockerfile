@@ -12,6 +12,8 @@ RUN pip install -r requirements.txt
 
 RUN mkdir -p ./helper-scripts/pycharm-debug/
 ADD ./helper-scripts/pycharm-debug/ /code/helper-scripts/pycharm-debug/
+WORKDIR /code/helper-scripts/pycharm-debug/
+RUN python setup.py install
 WORKDIR /code
 ADD ./manage.py /code/
 
